@@ -103,7 +103,7 @@ async def doc(bot, update):
         new_filename = new_name.split(":-")[1]
         file = update.message.reply_to_message
         file_path = f"downloads/{new_filename}"
-        ms = await update.message.edit("\n༻☬ད 𝘽𝙪𝙞𝙡𝙙𝙞𝙣𝙜 𝙇𝙖𝙯𝙮 𝙈𝙚𝙩𝙖𝘿𝙖𝙩𝙖...")
+        ms = await update.message.edit("\n༻☬ད 𝘽𝙪𝙞𝙡𝙙𝙞𝙣𝙜 𝙃𝙚𝙭𝙖 𝙈𝙚𝙩𝙖𝘿𝙖𝙩𝙖...")
         c_time = time.time()
         try:
             path = await bot.download_media(
@@ -137,7 +137,7 @@ async def doc(bot, update):
                  await ms.edit(text=f"Your caption Error unexpected keyword ●> ({e})")
                  return 
         else:
-            caption = f"**{new_filename}** \n\n⚡️Data costs: `{filesize}`"
+            caption = f"**{new_filename}**"
         if (media.thumbs or c_thumb):
             if c_thumb:
                ph_path = await bot.download_media(c_thumb) 
@@ -147,7 +147,7 @@ async def doc(bot, update):
             img = Image.open(ph_path)
             img.resize((320, 320))
             img.save(ph_path, "JPEG")
-        await ms.edit("三 𝘗𝘳𝘦𝘱𝘢𝘳𝘪𝘯𝘨 𝘵𝘰 𝘳𝘦𝘤𝘦𝘪𝘷𝘦 𝘓𝘢𝘻𝘺 𝘧𝘪𝘭𝘦...︻デ═一")
+        await ms.edit("三 𝘗𝘳𝘦𝘱𝘢𝘳𝘪𝘯𝘨 𝘵𝘰 𝘳𝘦𝘤𝘦𝘪𝘷𝘦 𝘏𝘦𝘹𝘢 𝘧𝘪𝘭𝘦...︻デ═一")
         c_time = time.time() 
         try:
            if type == "document":
@@ -157,7 +157,7 @@ async def doc(bot, update):
                        thumb=ph_path, 
                        caption=caption, 
                        progress=progress_for_pyrogram,
-                       progress_args=( "**⎝⎝✧ ʀᴇᴄɪᴇᴠɪɴɢ ꜰɪʟᴇ ꜰʀᴏᴍ ʟᴀᴢʏ ꜱᴇʀᴠᴇʀ ✧⎠⎠**",  ms, c_time))
+                       progress_args=( "**⎝⎝✧ ʀᴇᴄɪᴇᴠɪɴɢ ꜰɪʟᴇ ꜰʀᴏᴍ ʜᴇxᴀ ꜱᴇʀᴠᴇʀ ✧⎠⎠**",  ms, c_time))
            elif type == "video": 
                await bot.send_video(
 	            update.message.chat.id,
@@ -166,7 +166,7 @@ async def doc(bot, update):
 	            thumb=ph_path,
 	            duration=duration,
 	            progress=progress_for_pyrogram,
-	            progress_args=( "**⎝⎝✧ ʀᴇᴄɪᴇᴠɪɴɢ ꜰɪʟᴇ ꜰʀᴏᴍ ʟᴀᴢʏ ꜱᴇʀᴠᴇʀ ✧⎠⎠**",  ms, c_time))
+	            progress_args=( "**⎝⎝✧ ʀᴇᴄɪᴇᴠɪɴɢ ꜰɪʟᴇ ꜰʀᴏᴍ ʜᴇxᴀ ꜱᴇʀᴠᴇʀ ✧⎠⎠**",  ms, c_time))
            elif type == "audio": 
                await bot.send_audio(
 	            update.message.chat.id,
@@ -175,7 +175,7 @@ async def doc(bot, update):
 	            thumb=ph_path,
 	            duration=duration,
 	            progress=progress_for_pyrogram,
-	            progress_args=( "**⎝⎝✧ ʀᴇᴄɪᴇᴠɪɴɢ ꜰɪʟᴇ ꜰʀᴏᴍ ʟᴀᴢʏ ꜱᴇʀᴠᴇʀ ✧⎠⎠**",  ms, c_time   )) 
+	            progress_args=( "**⎝⎝✧ ʀᴇᴄɪᴇᴠɪɴɢ ꜰɪʟᴇ ꜰʀᴏᴍ ʜᴇxᴀ ꜱᴇʀᴠᴇʀ ✧⎠⎠**",  ms, c_time   )) 
         except Exception as e: 
             await ms.edit(f" Erro {e}") 
             os.remove(file_path)
@@ -1240,7 +1240,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://telegram.me/CinemaVenoOfficial")
+                InlineKeyboardButton(text=f"🐞 ʀᴇᴘᴏʀᴛ ɪꜱꜱᴜᴇ 🐞", url=f"https://telegram.me/CinemaVenoOfficial")
             ],[
                 InlineKeyboardButton(text=f"🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋", url=f"https://bit.ly/3FJVSPA")
 
@@ -1268,7 +1268,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://telegram.me/CinemaVenoOfficial")
+                InlineKeyboardButton(text=f"🐞 ʀᴇᴘᴏʀᴛ ɪꜱꜱᴜᴇ 🐞", url=f"https://telegram.me/CinemaVenoOfficial")
             ],[
                 InlineKeyboardButton(text=f"🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋", url=f"https://bit.ly/3FJVSPA")
             ]]
@@ -1295,7 +1295,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/SymbioticVenomBots")
+                InlineKeyboardButton(text=f"🐞 ʀᴇᴘᴏʀᴛ ɪꜱꜱᴜᴇ 🐞", url=f"https://t.me/SymbioticVenomBots")
             ],[
                 InlineKeyboardButton(text=f"🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋", url=f"https://bit.ly/3FJVSPA")
 
@@ -1323,7 +1323,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/SymbioticVenomBots")
+                InlineKeyboardButton(text=f"🐞 ʀᴇᴘᴏʀᴛ ɪꜱꜱᴜᴇ 🐞", url=f"https://t.me/SymbioticVenomBots")
             ],[
                 InlineKeyboardButton(text=f"🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋", url=f"https://bit.ly/3FJVSPA")
             ]]
@@ -1350,7 +1350,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/SymbioticVenomBots")
+                InlineKeyboardButton(text=f"🐞 ʀᴇᴘᴏʀᴛ ɪꜱꜱᴜᴇ 🐞", url=f"https://t.me/SymbioticVenomBots")
             ],[
                 InlineKeyboardButton(text=f"🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋", url=f"https://bit.ly/3FJVSPA")
 
@@ -1377,7 +1377,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"🔍 Search Here 🔎", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/SymbioticVenomBots")
+                InlineKeyboardButton(text=f"🐞 ʀᴇᴘᴏʀᴛ ɪꜱꜱᴜᴇ 🐞", url=f"https://t.me/SymbioticVenomBots")
             ],[
                 InlineKeyboardButton(text=f"🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋", url=f"https://bit.ly/3FJVSPA")
             ]]
@@ -1404,7 +1404,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             btn = [[
                 InlineKeyboardButton(text=f"💛 Request More 💛", url=f"https://telegram.me/{MOVIE_GROUP_USERNAME}")
             ],[
-                InlineKeyboardButton(text=f"🐞 REPORT BUG 🐞", url=f"https://t.me/SymbioticVenomBots")
+                InlineKeyboardButton(text=f"🐞 ʀᴇᴘᴏʀᴛ ɪꜱꜱᴜᴇ 🐞", url=f"https://t.me/SymbioticVenomBots")
             ],[
                 InlineKeyboardButton(text=f"🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋", url=f"https://bit.ly/3FJVSPA")
 
@@ -1425,7 +1425,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.delete()
         except Exception as e:
             print(e)  # print the error message
-            await query.answer(f"☣something went wrong sweetie\n\n{e}", show_alert=True)
+            await query.answer(f"☣something went wrong dear\n\n{e}", show_alert=True)
             return
 
     #Adding This feature to the bot to get the controls over the groups  
