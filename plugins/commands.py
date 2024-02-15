@@ -49,14 +49,14 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕↖️ Add Me To Your Groups ↗️➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🧞‍♀️ Search 🧐', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🔔 Updates 🤖', url='https://t.me/LazyDeveloper')
+            InlineKeyboardButton('🧞‍♀️ ꜱᴇᴀʀᴄʜ 🧐', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('🔔 ᴜᴘᴅᴀᴛᴇꜱ 🤖', url='https://t.me/CinemaVenoOfficial')
             ],[
-            InlineKeyboardButton('🙆🏻 Help 🦾', callback_data='help'),
-            InlineKeyboardButton('♥️ About ♥️', callback_data='about')
+            InlineKeyboardButton('🙆🏻 ʜᴇʟᴘ 🦾', callback_data='help'),
+            InlineKeyboardButton('♥️ ᴀʙᴏᴜᴛ ♥️', callback_data='about')
             ],[
-            InlineKeyboardButton('🔗 More Help', callback_data='leech_url_help'),
-            InlineKeyboardButton('⚙ Open Settings', callback_data='openSettings'),
+            InlineKeyboardButton('🔗 ᴍᴏʀᴇ ʜᴇʟᴘ', callback_data='leech_url_help'),
+            InlineKeyboardButton('⚙ ᴏᴘᴇɴ ꜱᴇᴛᴛɪɴɢꜱ', callback_data='openSettings'),
             ],[
             InlineKeyboardButton('🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋', url='https://bit.ly/3FJVSPA')
             ]]
@@ -111,8 +111,8 @@ async def start(client, message):
             InlineKeyboardButton('🙆🏻 ʜᴇʟᴘ 🦾', callback_data='help'),
             InlineKeyboardButton('♥️ ᴀʙᴏᴜᴛ ♥️', callback_data='about')
         ],[
-            InlineKeyboardButton('🔗 More Help ', callback_data='leech_url_help'),
-            InlineKeyboardButton('⚙ Open Settings ', callback_data='openSettings'),
+            InlineKeyboardButton('🔗 ᴍᴏʀᴇ ʜᴇʟᴘ ', callback_data='leech_url_help'),
+            InlineKeyboardButton('⚙ ᴏᴘᴇɴ ꜱᴇᴛᴛɪɴɢꜱ ', callback_data='openSettings'),
             ],
         [
             InlineKeyboardButton('🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋', url='https://bit.ly/3FJVSPA')
