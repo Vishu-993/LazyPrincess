@@ -727,6 +727,14 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton(" 𝐅𝐈𝐋𝐓𝐄𝐑 𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄 ʕʘ̅͜ʘ̅ʔ", callback_data=f"languages#{key}"),
             ]
         )
+	btn.insert(0, 
+            [
+                InlineKeyboardButton("ɪɴꜰᴏ", callback_data=f"info"),
+                InlineKeyboardButton("ᴍᴏᴠɪᴇ", callback_data=f"movies"),
+                InlineKeyboardButton("ꜱᴇʀɪᴇꜱ",  callback_data=f"series"),
+                InlineKeyboardButton("ᴛɪᴘꜱ",  callback_data=f"tips")
+            ]
+        )
         btn.insert(0, [
 	            InlineKeyboardButton(text="🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋", url='https://bit.ly/3FJVSPA'),
         ])
