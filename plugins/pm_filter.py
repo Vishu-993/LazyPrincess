@@ -533,7 +533,6 @@ async def languages_cb_handler(client: Client, query: CallbackQuery):
 
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
     
-
 @Client.on_callback_query(filters.regex(r"^fl#"))
 async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     try:
@@ -552,7 +551,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         try:
             if int(req) not in [query.message.reply_to_message.from_user.id, 0]:
                 return await query.answer(
-                    f"👊 ʜᴇʟʟᴏ{query.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
+                    f"👊 ʜᴇʟʟᴏ {query.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
                     show_alert=True,
                 )
         except:
@@ -560,7 +559,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         if lang != "homepage":
             search = f"{search} {lang}"
         BUTTONS[key] = search
-    
+
         files, offset, total_results = await get_search_results_badAss_LazyDeveloperr(chat_id, search, offset=0, filter=True)
 
         if not files:
@@ -570,14 +569,6 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         settings = await get_settings(message.chat.id)
         pre = 'filep' if settings['file_secure'] else 'file'
         if settings["button"]:
-            # btn = [
-            #     [
-            #         InlineKeyboardButton(
-            #             text=f"[{get_size(file.file_size)}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
-            #         ),
-            #     ]
-            #     for file in files
-            # ]
             if URL_MODE is True:
                 if message.from_user.id in ADMINS:
                     btn = [
@@ -605,21 +596,21 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                             ),
                         ]
                         for file in files
-                        ]
+                    ]
                 elif message.chat.id is not None and message.chat.id in LAZY_GROUPS:
                     btn = [
-                    [
-                        InlineKeyboardButton(
-                            text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
-                        ),
-                    ]
-                    for file in files
+                        [
+                            InlineKeyboardButton(
+                                text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                            ),
+                        ]
+                        for file in files
                     ]
                 else:
                     btn = [
                         [
                             InlineKeyboardButton(
-                                text=f"[{get_size(file.file_size)}] {file.file_name}", 
+                                text=f"[{get_size(file.file_size)}] {file.file_name}",
                                 url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
                             ),
                         ]
@@ -653,46 +644,67 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                         ]
                         for file in files
                     ]
-
         else:
             if URL_MODE is True:
                 if query.from_user.id in ADMINS:
                     btn = [
                         [
-                            InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                            InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
+                            InlineKeyboardButton(
+                                text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                            ),
+                            InlineKeyboardButton(
+                                text=f"{get_size(file.file_size)}", callback_data=f'files#{file.file_id}'
+                            ),
                         ]
                         for file in files
                     ]
                 elif query.from_user.id in MY_USERS:
                     btn = [
                         [
-                            InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                            InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
+                            InlineKeyboardButton(
+                                text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                            ),
+                            InlineKeyboardButton(
+                                text=f"{get_size(file.file_size)}", callback_data=f'files#{file.file_id}'
+                            ),
                         ]
                         for file in files
                     ]
                 elif query.from_user.id in LZURL_PRIME_USERS:
                     btn = [
                         [
-                            InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                            InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
+                            InlineKeyboardButton(
+                                text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                            ),
+                            InlineKeyboardButton(
+                                text=f"{get_size(file.file_size)}", callback_data=f'files#{file.file_id}'
+                            ),
                         ]
                         for file in files
                     ]
                 elif query.message.chat.id is not None and query.message.chat.id in LAZY_GROUPS:
                     btn = [
                         [
-                            InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                            InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
+                            InlineKeyboardButton(
+                                text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                            ),
+                            InlineKeyboardButton(
+                                text=f"{get_size(file.file_size)}", callback_data=f'files#{file.file_id}'
+                            ),
                         ]
                         for file in files
                     ]
                 else:
                     btn = [
                         [
-                            InlineKeyboardButton(text=f"{file.file_name}",url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")),
-                            InlineKeyboardButton(text=f"[{get_size(file.file_size)}]", url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")),
+                            InlineKeyboardButton(
+                                text=f"{file.file_name}",
+                                url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                            ),
+                            InlineKeyboardButton(
+                                text=f"[{get_size(file.file_size)}]", 
+                                url=await get_shortlink(f"https://telegram.me/{temp.U_NAME}?start=files_{file.file_id}")
+                            ),
                         ]
                         for file in files
                     ]
@@ -700,56 +712,66 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                 if query.form_user.id in ADMINS:
                     btn = [
                         [
-                            InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                            InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
+                            InlineKeyboardButton(
+                                text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                            ),
+                            InlineKeyboardButton(
+                                text=f"{get_size(file.file_size)}", callback_data=f'files#{file.file_id}'
+                            ),
                         ]
                         for file in files
                     ]
                 elif query.form_user.id in MY_USERS:
                     btn = [
                         [
-                            InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                            InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
+                            InlineKeyboardButton(
+                                text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                            ),
+                            InlineKeyboardButton(
+                                text=f"{get_size(file.file_size)}", callback_data=f'files#{file.file_id}'
+                            ),
                         ]
                         for file in files
                     ]
                 else:
                     btn = [
                         [
-                            InlineKeyboardButton(text=f"{file.file_name}",callback_data=f'files#{file.file_id}',),
-                            InlineKeyboardButton(text=f"{get_size(file.file_size)}",callback_data=f'files#{file.file_id}',),
+                            InlineKeyboardButton(
+                                text=f"{file.file_name}", callback_data=f'files#{file.file_id}'
+                            ),
+                            InlineKeyboardButton(
+                                text=f"{get_size(file.file_size)}", callback_data=f'files#{file.file_id}'
+                            ),
                         ]
                         for file in files
                     ]
 
-        btn.insert(0, 
-            [
-                InlineKeyboardButton(" 𝐅𝐈𝐋𝐓𝐄𝐑 𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄 ʕʘ̅͜ʘ̅ʔ", callback_data=f"languages#{key}"),
-            ]
-        )
-	btn.insert(0, 
-            [
-                InlineKeyboardButton("ɪɴꜰᴏ", callback_data=f"info"),
-                InlineKeyboardButton("ᴍᴏᴠɪᴇ", callback_data=f"movies"),
-                InlineKeyboardButton("ꜱᴇʀɪᴇꜱ",  callback_data=f"series"),
-                InlineKeyboardButton("ᴛɪᴘꜱ",  callback_data=f"tips")
-            ]
-        )
         btn.insert(0, [
-	            InlineKeyboardButton(text="🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋", url='https://bit.ly/3FJVSPA'),
+            InlineKeyboardButton("𝐅𝐈𝐋𝐓𝐄𝐑 𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄 ʕʘ̅͜ʘ̅ʔ", callback_data=f"languages#{key}")
+        ])
+        
+        btn.insert(0, [
+            InlineKeyboardButton("ɪɴꜰᴏ", callback_data=f"info"),
+            InlineKeyboardButton("ᴍᴏᴠɪᴇ", callback_data=f"movies"),
+            InlineKeyboardButton("ꜱᴇʀɪᴇꜱ", callback_data=f"series"),
+            InlineKeyboardButton("ᴛɪᴘꜱ", callback_data=f"tips")
+        ])
+        
+        btn.insert(0, [
+            InlineKeyboardButton(text="🦋 ꜰᴏʟʟᴏᴡ ᴜꜱ 🦋", url='https://bit.ly/3FJVSPA')
         ])
 
         if offset != "":
             print(f"offset => {offset}")
-            btn.append(
-                [InlineKeyboardButton(text=f"🗓 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
-                InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")]
-            )
+            btn.append([
+                InlineKeyboardButton(text=f"🗓 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
+                InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")
+            ])
         else:
-            btn.append(
-                [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
-            )
-##############################
+            btn.append([
+                InlineKeyboardButton(text="🗓 1/1", callback_data="pages")
+            ])
+        
         try:
             await query.edit_message_reply_markup(
                 reply_markup=InlineKeyboardMarkup(btn)
@@ -758,7 +780,8 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             pass
         await query.answer()   
     except Exception as e:
-        logger.error(f"Got an unexpected error : {e}")
+        logger.error(f"Got an unexpected error: {e}")
+	    
 
 # Born to make history @Hexa !
 @Client.on_callback_query()
